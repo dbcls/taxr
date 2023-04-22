@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <title>Taxonomy</title>
+        <script src='https://cdn.jsdelivr.net/gh/hchiba1/blitzboard@chiba-tooltip/blitzboard.js'></script>
+        <script src='https://cdn.jsdelivr.net/gh/blitzboard/blitzboard@v1.0.1/lib/pg_parser_browserified.js' type='text/javascript'></script>
+        <script src='https://unpkg.com/vis-network/standalone/umd/vis-network.min.js'></script>
+        <script src='https://code.iconify.design/2/2.0.4/iconify.min.js'></script>
+    </head>
+    <body>
+        <div id='graph-area' style="width: 98%; height: 98%; border: solid 1px silver; background: radial-gradient(white, silver);"></div>
+        <script>
+         let blitzboard = new Blitzboard(document.getElementById('graph-area'));
+         let graph, config;
+         let graphPromise = fetch('taxonomy/graph.pg').then(res => {
+             return res.text();
+         }).then(text => {
+             graph = text;
+         });
+         let configPromise = fetch('taxonomy/config.js').then(res => {
+             return res.text();
+         }).then(text => {
+             config = text;
+         });
+         Promise.all([graphPromise, configPromise]).then(() => {
+             blitzboard.setGraph(graph, false);
+             blitzboard.setConfig(Function('blitzboard', `"use strict";return (${config})`)(blitzboard), true);
+             blitzboard.network.stabilize();
+         });
+        </script>
+    </body>
+</html>

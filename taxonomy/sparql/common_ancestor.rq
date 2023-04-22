@@ -1,0 +1,17 @@
+#!/usr/bin/env spang2
+# @option -a
+# @endpoint orth1
+# @param tax1=9606
+# @param tax2=9615
+
+PREFIX taxid: <http://identifiers.org/taxonomy/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?ancestor
+WHERE {
+  taxid:${tax1} rdfs:subClassOf* ?tax1 .
+  taxid:${tax2} rdfs:subClassOf* ?tax2 .
+  ?tax1 rdfs:subClassOf ?ancestor .
+  ?tax2 rdfs:subClassOf ?ancestor .
+  FILTER (?tax1 != ?tax2)
+}

@@ -1,0 +1,13 @@
+#!/usr/bin/env spang2
+# @endpoint spang
+# @option -va
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX taxon: <http://ddbj.nig.ac.jp/ontologies/taxonomy/>
+
+SELECT ?url ?name ?rank
+WHERE {
+  ?url rdfs:label "Homo" .
+  ?url rdfs:label ?name .
+  ?url taxon:rank/rdfs:label ?rank .
+}

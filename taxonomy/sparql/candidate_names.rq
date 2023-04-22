@@ -1,0 +1,13 @@
+#!/usr/bin/env spang2
+# @endpoint orth1
+# @option -a --time
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX taxon: <http://ddbj.nig.ac.jp/ontologies/taxonomy/>
+
+SELECT ?url ?common_name ?name ?rank
+WHERE {
+  ?url taxon:genbankCommonName ?common_name ;
+       rdfs:label ?name ;
+       taxon:rank ?rank .
+}

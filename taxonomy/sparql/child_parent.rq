@@ -1,0 +1,15 @@
+#!/usr/bin/env spang2
+# @option -vac
+# @endpoint spang
+# @param id=9606
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX taxid: <http://identifiers.org/taxonomy/>
+PREFIX taxon: <http://ddbj.nig.ac.jp/ontologies/taxonomy/>
+
+SELECT ?url ?rank ?name
+WHERE {
+  taxid:${id} rdfs:subClassOf ?url .
+  ?url rdfs:label ?name .
+  ?url taxon:rank/rdfs:label ?rank .
+}

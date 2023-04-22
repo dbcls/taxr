@@ -1,0 +1,13 @@
+#!/usr/bin/env spang2
+# @option -acs
+# @endpoint dbpedia
+# @param name="Homo_sapiens"
+
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?comment
+WHERE {
+  dbpedia:${name} dbo:wikiPageRedirects* ?uri .
+  ?uri rdfs:comment ?comment .
+  FILTER (lang(?comment) = "ja")
+}

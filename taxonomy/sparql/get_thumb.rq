@@ -1,0 +1,22 @@
+#!/usr/bin/env spang2
+# @option -s
+# @endpoint wikidata
+# @param name="Homo sapiens"
+
+PREFIX wdt: <http://www.wikidata.org/prop/direct/>
+
+SELECT ?url ?name_ja ?rank_ja ?thumb ?descr_ja
+WHERE {
+  ?url wdt:P225 "${name}" .
+  ?url rdfs:label ?name_ja .
+  ?url wdt:P105/rdfs:label ?rank_ja .
+  OPTIONAL {
+    ?url wdt:P18 ?thumb .
+  }  
+  FILTER(lang(?name_ja) = 'ja')
+  FILTER(lang(?rank_ja) = 'ja')
+  OPTIONAL {
+    ?url <http://schema.org/description> ?descr_ja .
+    FILTER(lang(?descr_ja) = 'ja')
+  }
+}

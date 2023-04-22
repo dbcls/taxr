@@ -1,0 +1,65 @@
+9606 :Taxon "taxon name":"Homo sapiens" "taxon rank":species "tax ID":"http://identifiers.org/taxonomy/9606" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Human.svg" Wikidata:"http://www.wikidata.org/entity/Q15978631" rank_ja:種 name:ホモ・サピエンス
+9605 :Taxon "taxon name":Homo "taxon rank":genus "tax ID":"http://identifiers.org/taxonomy/9605" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Comparison%20of%20skull%20features%20of%20Homo%20naledi%20and%20other%20early%20human%20species.jpg" Wikidata:"http://www.wikidata.org/entity/Q171283" rank_ja:属 name:ヒト属
+9605 -> 9606 :"child taxon"
+2665952 :Taxon "taxon name":"environmental samples" "taxon rank":"no rank" "tax ID":"http://identifiers.org/taxonomy/2665952" name:"environmental samples"
+9605 -> 2665952 :"child taxon"
+207598 :Taxon "taxon name":Homininae "taxon rank":subfamily "tax ID":"http://identifiers.org/taxonomy/207598" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Secretary%20Leonard%20Carmichael.jpg" Wikidata:"http://www.wikidata.org/entity/Q242047" rank_ja:亜科 name:ヒト亜科
+207598 -> 9605 :"child taxon"
+1425170 :Taxon "taxon name":"Homo heidelbergensis" "taxon rank":species "tax ID":"http://identifiers.org/taxonomy/1425170" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Homo%20heidelbergensis-Cranium%20-5.jpg" Wikidata:"http://www.wikidata.org/entity/Q105784" rank_ja:種 name:ホモ・ハイデルベルゲンシス
+9605 -> 1425170 :"child taxon"
+9596 :Taxon "taxon name":Pan "taxon rank":genus "tax ID":"http://identifiers.org/taxonomy/9596" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Schimpanse%20Zoo%20Leipzig.jpg" Wikidata:"http://www.wikidata.org/entity/Q80174" rank_ja:属 name:チンパンジー属
+207598 -> 9596 :"child taxon"
+9604 :Taxon "taxon name":Hominidae "taxon rank":family "tax ID":"http://identifiers.org/taxonomy/9604" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Pongo-Headshot.jpg" Wikidata:"http://www.wikidata.org/entity/Q635162" rank_ja:科 name:ヒト科
+9604 -> 207598 :"child taxon"
+9592 :Taxon "taxon name":Gorilla "taxon rank":genus "tax ID":"http://identifiers.org/taxonomy/9592" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Lowland%20Gorilla%20%288973697544%29.jpg" Wikidata:"http://www.wikidata.org/entity/Q36611" description:霊長目ヒト科の動物 rank_ja:属 name:ゴリラ
+207598 -> 9592 :"child taxon"
+314295 :Taxon "taxon name":Hominoidea "taxon rank":superfamily "tax ID":"http://identifiers.org/taxonomy/314295" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Weisshandgibbon%20tierpark%20berlin.jpg" Wikidata:"http://www.wikidata.org/entity/Q102470" rank_ja:上科 name:ヒト上科
+314295 -> 9604 :"child taxon"
+607660 :Taxon "taxon name":Ponginae "taxon rank":subfamily "tax ID":"http://identifiers.org/taxonomy/607660" name:Ponginae
+9604 -> 607660 :"child taxon"
+9577 :Taxon "taxon name":Hylobatidae "taxon rank":family "tax ID":"http://identifiers.org/taxonomy/9577" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Hylobates%20lar%20pair%20of%20white%20and%20black%2001.jpg" Wikidata:"http://www.wikidata.org/entity/Q185939" rank_ja:科 name:テナガザル
+314295 -> 9577 :"child taxon"
+9526 :Taxon "taxon name":Catarrhini "taxon rank":parvorder "tax ID":"http://identifiers.org/taxonomy/9526" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Petit-cercopithecus-hamlyni.jpg" Wikidata:"http://www.wikidata.org/entity/Q206930" rank_ja:小目 name:狭鼻小目
+9526 -> 314295 :"child taxon"
+314293 :Taxon "taxon name":Simiiformes "taxon rank":infraorder "tax ID":"http://identifiers.org/taxonomy/314293" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/White-handed%20Gibbon%20Hylobates%20lar%20Orange%201900px.jpg" Wikidata:"http://www.wikidata.org/entity/Q5452918" rank_ja:下目 name:真猿型下目
+314293 -> 9526 :"child taxon"
+314294 :Taxon "taxon name":Cercopithecoidea "taxon rank":superfamily "tax ID":"http://identifiers.org/taxonomy/314294" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Cercopithecus%20mona.jpg" Wikidata:"http://www.wikidata.org/entity/Q3665073" rank_ja:上科 name:オナガザル上科
+9526 -> 314294 :"child taxon"
+9479 :Taxon "taxon name":Platyrrhini "taxon rank":parvorder "tax ID":"http://identifiers.org/taxonomy/9479" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Panamanian%20night%20monkey.jpg" Wikidata:"http://www.wikidata.org/entity/Q237157" rank_ja:小目 name:広鼻小目
+314293 -> 9479 :"child taxon"
+376913 :Taxon "taxon name":Haplorrhini "taxon rank":suborder "tax ID":"http://identifiers.org/taxonomy/376913" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Totenkopfaeffchen.jpg" Wikidata:"http://www.wikidata.org/entity/Q82261" rank_ja:亜目 name:直鼻猿亜目
+376913 -> 314293 :"child taxon"
+9498 :Taxon "taxon name":Cebidae "taxon rank":family "tax ID":"http://identifiers.org/taxonomy/9498" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Capuchin%20Costa%20Rica.jpg" Wikidata:"http://www.wikidata.org/entity/Q425707" rank_ja:科 name:オマキザル科
+9479 -> 9498 :"child taxon"
+376919 :Taxon "taxon name":Pitheciidae "taxon rank":family "tax ID":"http://identifiers.org/taxonomy/376919" name:Pitheciidae
+9479 -> 376919 :"child taxon"
+376918 :Taxon "taxon name":Aotidae "taxon rank":family "tax ID":"http://identifiers.org/taxonomy/376918" name:Aotidae
+9479 -> 376918 :"child taxon"
+378855 :Taxon "taxon name":Atelidae "taxon rank":family "tax ID":"http://identifiers.org/taxonomy/378855" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/AtelesGeoffroyi.jpg" Wikidata:"http://www.wikidata.org/entity/Q463395" rank_ja:科 name:クモザル科
+9479 -> 378855 :"child taxon"
+9443 :Taxon "taxon name":Primates "taxon rank":order "tax ID":"http://identifiers.org/taxonomy/9443" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Olive%20baboon.jpg" Wikidata:"http://www.wikidata.org/entity/Q7380" description:動物界哺乳綱に属する分類のひとつ rank_ja:目 name:サル目
+9443 -> 376913 :"child taxon"
+376912 :Taxon "taxon name":Tarsiiformes "taxon rank":infraorder "tax ID":"http://identifiers.org/taxonomy/376912" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Tarsier%20Hugs%20Mossy%20Branch.jpg" Wikidata:"http://www.wikidata.org/entity/Q2703853" rank_ja:下目 name:メガネザル型下目
+376913 -> 376912 :"child taxon"
+376911 :Taxon "taxon name":Strepsirrhini "taxon rank":suborder "tax ID":"http://identifiers.org/taxonomy/376911" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Propithecus%20verreauxi.JPG" Wikidata:"http://www.wikidata.org/entity/Q82265" rank_ja:亜目 name:曲鼻猿亜目
+9443 -> 376911 :"child taxon"
+314146 :Taxon "taxon name":Euarchontoglires "taxon rank":superorder "tax ID":"http://identifiers.org/taxonomy/314146" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Euarchontoglires%201.jpg" Wikidata:"http://www.wikidata.org/entity/Q471797" rank_ja:上目 name:真主齧上目
+314146 -> 9443 :"child taxon"
+57118 :Taxon "taxon name":"unclassified Primates" "taxon rank":"no rank" "tax ID":"http://identifiers.org/taxonomy/57118" name:"unclassified Primates"
+9443 -> 57118 :"child taxon"
+1437010 :Taxon "taxon name":Boreoeutheria "taxon rank":clade "tax ID":"http://identifiers.org/taxonomy/1437010" name:Boreoeutheria
+1437010 -> 314146 :"child taxon"
+9392 :Taxon "taxon name":Scandentia "taxon rank":order "tax ID":"http://identifiers.org/taxonomy/9392" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Tupaia%20belangeri%20-Kaeng%20Krachan.jpg" Wikidata:"http://www.wikidata.org/entity/Q231550" description:哺乳綱に属する動物の分類のひとつ rank_ja:目 name:ツパイ目
+314146 -> 9392 :"child taxon"
+314147 :Taxon "taxon name":Glires "taxon rank":clade "tax ID":"http://identifiers.org/taxonomy/314147" name:Glires
+314146 -> 314147 :"child taxon"
+30656 :Taxon "taxon name":Dermoptera "taxon rank":order "tax ID":"http://identifiers.org/taxonomy/30656" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Colugo%20%28Galeopterus%20variegatus%2C%20adult%20female%29%2C%20Central%20Catchment%20Area%2C%20Singapore%20-%2020060618.jpg" Wikidata:"http://www.wikidata.org/entity/Q183383" description:哺乳類の分類 rank_ja:目 name:ヒヨケザル目
+314146 -> 30656 :"child taxon"
+9593 :Taxon "taxon name":"Gorilla gorilla" "taxon rank":species "tax ID":"http://identifiers.org/taxonomy/9593" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Gorilla%20gorilla%20at%20the%20Bronx%20Zoo%20007.jpg" Wikidata:"http://www.wikidata.org/entity/Q737838" rank_ja:種 name:ニシゴリラ
+9592 -> 9593 :"child taxon"
+499232 :Taxon "taxon name":"Gorilla beringei" "taxon rank":species "tax ID":"http://identifiers.org/taxonomy/499232" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Gorillas%20in%20Uganda-1%2C%20by%20Fiver%20L%C3%B6cker.jpg" Wikidata:"http://www.wikidata.org/entity/Q307157" rank_ja:種 name:ヒガシゴリラ
+9592 -> 499232 :"child taxon"
+9598 :Taxon "taxon name":"Pan troglodytes" "taxon rank":species "tax ID":"http://identifiers.org/taxonomy/9598" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Gombe%20Stream%20NP%20Beute.jpg" Wikidata:"http://www.wikidata.org/entity/Q4126704" description:霊長目ヒト科の動物 rank_ja:種 name:チンパンジー
+9596 -> 9598 :"child taxon"
+9597 :Taxon "taxon name":"Pan paniscus" "taxon rank":species "tax ID":"http://identifiers.org/taxonomy/9597" thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Apeldoorn%20Apenheul%20zoo%20Bonobo.jpg" Wikidata:"http://www.wikidata.org/entity/Q19537" description:霊長目ヒト科の動物 rank_ja:種 name:ボノボ
+9596 -> 9597 :"child taxon"
