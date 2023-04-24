@@ -1,3 +1,3 @@
-# NCBI Taxonomy Browser using Blitzboard
+# NCBI Taxonomy Browser
 
 https://orthordf.github.io/tax-browser/
