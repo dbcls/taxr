@@ -1,5 +1,6 @@
 function init() {
   $.get('./js/candidate_names', (res) => {
+  // $.get('https://raw.githubusercontent.com/orthordf/taxr/main/js/candidate_names', (res) => {
     candidates = res.trim().split('\n')
   });
 
