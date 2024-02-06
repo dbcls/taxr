@@ -13,12 +13,12 @@
         <script>
          let blitzboard = new Blitzboard(document.getElementById('graph-area'));
          let graph, config;
-         let graphPromise = fetch('taxonomy/graph.pg').then(res => {
+         let graphPromise = fetch('js/graph.pg').then(res => {
              return res.text();
          }).then(text => {
              graph = text;
          });
-         let configPromise = fetch('taxonomy/config.js').then(res => {
+         let configPromise = fetch('js/config.js').then(res => {
              return res.text();
          }).then(text => {
              config = text;

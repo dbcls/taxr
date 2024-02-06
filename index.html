@@ -8,7 +8,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
-        <script src="taxonomy/path.js"></script>
+        <script src="js/path.js"></script>
     </head>
     <body onload=init()>
         <label id="input_label" for="tags">Search: </label><input id="tags" size="40">
@@ -17,12 +17,12 @@
         <script>
          let blitzboard = new Blitzboard(document.getElementById('graph-area'));
          let graph, config;
-         let graphPromise = fetch('taxonomy/graph.pg').then(res => {
+         let graphPromise = fetch('js/graph.pg').then(res => {
              return res.text();
          }).then(text => {
              graph = text;
          });
-         let configPromise = fetch('taxonomy/config-tooltip.js').then(res => {
+         let configPromise = fetch('js/config-tooltip.js').then(res => {
              return res.text();
          }).then(text => {
              config = text;
