@@ -1,5 +1,5 @@
 function init() {
-  $.get('./taxonomy/candidate_names', (res) => {
+  $.get('./genomes/candidate_names', (res) => {
     candidates = res.trim().split('\n')
   });
 
