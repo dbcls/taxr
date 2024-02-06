@@ -27,9 +27,9 @@ while (<>) {
     my $id = $f[0];
     my $category = $f[4];
     my $taxid = $f[5];
-    if ($category eq 'na') {
-        next;
-    }
+    # if ($category eq 'na') {
+    #     next;
+    # }
     print "assemblyId:$id a ncbio:RefSeqGenome ;\n";
     print "    ncbio:taxid taxid:$taxid .\n";
 }
