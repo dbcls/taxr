@@ -168,11 +168,15 @@
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         PREFIX taxid: <http://identifiers.org/taxonomy/>
         PREFIX taxon: <http://ddbj.nig.ac.jp/ontologies/taxonomy/>
+        PREFIX ncbio: <https://dbcls.github.io/ncbigene-rdf/ontology.ttl#>
         SELECT ?url ?rank ?name
         WHERE {
           ${child} rdfs:subClassOf ${parent} .
           ?url rdfs:label ?name .
           ?url taxon:rank/rdfs:label ?rank .
+          ?refseq_genome a ncbio:RefSeqGenome ;
+              ncbio:taxid ?taxid .
+          ?taxid rdfs:subClassOf* ${child} .
         }
         `;
       }
