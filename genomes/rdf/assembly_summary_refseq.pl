@@ -11,7 +11,7 @@ my %OPT;
 getopts('', \%OPT);
 
 print "\@prefix assemblyId: <https://identifiers.org/assembly/> .\n";
-print "\@prefix ncbio: <https://dbcls.github.io/ncbigene-rdf/ontology.ttl#>";
+print "\@prefix ncbio: <https://dbcls.github.io/ncbigene-rdf/ontology.ttl#> .\n";
 print "\@prefix taxid: <http://identifiers.org/taxonomy/> .\n";
 print "\n";
 
