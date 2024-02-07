@@ -19,3 +19,33 @@
 7458 -> 78170 :"child taxon"
 28641 :Taxon "taxon name":Bombus "taxon rank":genus "tax ID":"http://identifiers.org/taxonomy/28641" count:9 thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Bombus%20sp%20%2831262160464%29.jpg" Wikidata:"http://www.wikidata.org/entity/Q25407" rank_ja:属 name:マルハナバチ
 83311 -> 28641 :"child taxon"
+34735 :Taxon "taxon name":Apoidea "taxon rank":superfamily "tax ID":"http://identifiers.org/taxonomy/34735" count:28 thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Bee%20PD%20foto%20explained1.jpg" Wikidata:"http://www.wikidata.org/entity/Q324132" rank_ja:上科 name:ミツバチ上科
+34735 -> 3042114 :"child taxon"
+77572 :Taxon "taxon name":Halictidae "taxon rank":family "tax ID":"http://identifiers.org/taxonomy/77572" count:3 thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Halictus%20scabiosae%20MHNT.jpg" Wikidata:"http://www.wikidata.org/entity/Q2276661" rank_ja:科 name:コハナバチ科
+3042114 -> 77572 :"child taxon"
+156309 :Taxon "taxon name":Colletidae "taxon rank":family "tax ID":"http://identifiers.org/taxonomy/156309" count:3 thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Colletes%20daviesanus%202005.07.17%2011.08.11.jpg" Wikidata:"http://www.wikidata.org/entity/Q132340" rank_ja:科 name:ムカシハナバチ科
+3042114 -> 156309 :"child taxon"
+124286 :Taxon "taxon name":Megachilidae "taxon rank":family "tax ID":"http://identifiers.org/taxonomy/124286" count:3 thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Anthidium%20manicatum%20male.jpg" Wikidata:"http://www.wikidata.org/entity/Q530200" rank_ja:科 name:ハキリバチ科
+3042114 -> 124286 :"child taxon"
+7434 :Taxon "taxon name":Aculeata "taxon rank":infraorder "tax ID":"http://identifiers.org/taxonomy/7434" count:59 thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Vespula%20vulgaris%20I.jpg" Wikidata:"http://www.wikidata.org/entity/Q1251421" description:昆虫の分類 rank_ja:下目 name:有剣類
+7434 -> 34735 :"child taxon"
+7400 :Taxon "taxon name":Apocrita "taxon rank":suborder "tax ID":"http://identifiers.org/taxonomy/7400" count:75 thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Flying%20Vespula%20vulgaris.jpg" Wikidata:"http://www.wikidata.org/entity/Q22864" rank_ja:亜目 name:ハチ亜目
+7400 -> 7434 :"child taxon"
+34725 :Taxon "taxon name":Vespoidea "taxon rank":superfamily "tax ID":"http://identifiers.org/taxonomy/34725" count:8 thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/2919baldf.w.jpg" Wikidata:"http://www.wikidata.org/entity/Q425636" rank_ja:上科 name:スズメバチ上科
+7434 -> 34725 :"child taxon"
+2153479 :Taxon "taxon name":Formicoidea "taxon rank":superfamily "tax ID":"http://identifiers.org/taxonomy/2153479" count:23 name:Formicoidea
+7434 -> 2153479 :"child taxon"
+7399 :Taxon "taxon name":Hymenoptera "taxon rank":order "tax ID":"http://identifiers.org/taxonomy/7399" count:83 thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Hymenoptere%28s%29.jpg" Wikidata:"http://www.wikidata.org/entity/Q22651" description:昆虫綱に属する目のひとつ rank_ja:目 name:ハチ目
+7399 -> 7400 :"child taxon"
+1955251 :Taxon "taxon name":Proctotrupomorpha "taxon rank":infraorder "tax ID":"http://identifiers.org/taxonomy/1955251" count:8 name:Proctotrupomorpha
+7400 -> 1955251 :"child taxon"
+7401 :Taxon "taxon name":Ichneumonoidea "taxon rank":superfamily "tax ID":"http://identifiers.org/taxonomy/7401" count:8 thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Megarhyssa%20greenei%20female.jpg" Wikidata:"http://www.wikidata.org/entity/Q957016" rank_ja:上科 name:ヒメバチ上科
+7400 -> 7401 :"child taxon"
+33392 :Taxon "taxon name":Endopterygota "taxon rank":cohort "tax ID":"http://identifiers.org/taxonomy/33392" count:237 thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/CH%20Caterpillar%202.jpg" Wikidata:"http://www.wikidata.org/entity/Q304358" rank_ja:上目 name:内翅上目
+33392 -> 7399 :"child taxon"
+85772 :Taxon "taxon name":Tenthredinoidea "taxon rank":superfamily "tax ID":"http://identifiers.org/taxonomy/85772" count:6 name:Tenthredinoidea
+7399 -> 85772 :"child taxon"
+222831 :Taxon "taxon name":Orussoidea "taxon rank":superfamily "tax ID":"http://identifiers.org/taxonomy/222831" count:1 name:Orussoidea
+7399 -> 222831 :"child taxon"
+222823 :Taxon "taxon name":Cephoidea "taxon rank":superfamily "tax ID":"http://identifiers.org/taxonomy/222823" count:1 name:Cephoidea
+7399 -> 222823 :"child taxon"
