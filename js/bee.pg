@@ -1,0 +1,21 @@
+7459 :Taxon "taxon name":Apis "taxon rank":genus "tax ID":"http://identifiers.org/taxonomy/7459" count:6 thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Bees-wings.web.jpg" Wikidata:"http://www.wikidata.org/entity/Q102857" description:膜翅目ミツバチ科の昆虫 rank_ja:属 name:ミツバチ
+83321 :Taxon "taxon name":Apini "taxon rank":tribe "tax ID":"http://identifiers.org/taxonomy/83321" count:6 name:Apini
+83321 -> 7459 :"child taxon"
+70987 :Taxon "taxon name":Apinae "taxon rank":subfamily "tax ID":"http://identifiers.org/taxonomy/70987" count:18 thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Female%20Tetraloniella%20sp%20edit1.jpg" Wikidata:"http://www.wikidata.org/entity/Q37204" rank_ja:亜科 name:ミツバチ亜科
+70987 -> 83321 :"child taxon"
+7458 :Taxon "taxon name":Apidae "taxon hrank":family "tax ID":"http://identifiers.org/taxonomy/7458" count:19 thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Abejorro%2002.jpg" Wikidata:"http://www.wikidata.org/entity/Q756082" rank_ja:科 name:ミツバチ科
+7458 -> 70987 :"child taxon"
+83311 :Taxon "taxon name":Bombini "taxon rank":tribe "tax ID":"http://identifiers.org/taxonomy/83311" count:9 name:Bombini
+70987 -> 83311 :"child taxon"
+83323 :Taxon "taxon name":Anthophorini "taxon rank":tribe "tax ID":"http://identifiers.org/taxonomy/83323" count:1 name:Anthophorini
+70987 -> 83323 :"child taxon"
+83319 :Taxon "taxon name":Meliponini "taxon rank":tribe "tax ID":"http://identifiers.org/taxonomy/83319" count:1 thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Meliponula%20ferruginea.jpg" Wikidata:"http://www.wikidata.org/entity/Q127768" rank_ja:族 name:ハリナシバチ
+70987 -> 83319 :"child taxon"
+83310 :Taxon "taxon name":Euglossini "taxon rank":tribe "tax ID":"http://identifiers.org/taxonomy/83310" count:1 thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Mormodes%20buccinator%20-%20infl%203.jpg" Wikidata:"http://www.wikidata.org/entity/Q1521051" rank_ja:族 name:ランミツバチ
+70987 -> 83310 :"child taxon"
+3042114 :Taxon "taxon name":Anthophila "taxon rank":clade "tax ID":"http://identifiers.org/taxonomy/3042114" count:28 name:Anthophila
+3042114 -> 7458 :"child taxon"
+78170 :Taxon "taxon name":Xylocopinae "taxon rank":subfamily "tax ID":"http://identifiers.org/taxonomy/78170" count:1 name:Xylocopinae
+7458 -> 78170 :"child taxon"
+28641 :Taxon "taxon name":Bombus "taxon rank":genus "tax ID":"http://identifiers.org/taxonomy/28641" count:9 thumbnail:"http://commons.wikimedia.org/wiki/Special:FilePath/Bombus%20sp%20%2831262160464%29.jpg" Wikidata:"http://www.wikidata.org/entity/Q25407" rank_ja:属 name:マルハナバチ
+83311 -> 28641 :"child taxon"
