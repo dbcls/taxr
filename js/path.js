@@ -41,13 +41,15 @@ function sparqlToRoot(name, callback) {
   const sparql = `
     PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
     PREFIX taxon: <http://ddbj.nig.ac.jp/ontologies/taxonomy/>
-    SELECT ?tax ?name ?rank ?common_name
+    PREFIX ncbio: <https://dbcls.github.io/ncbigene-rdf/ontology.ttl#>
+    SELECT ?tax ?name ?rank ?common_name ?count
     WHERE {
       ?s a taxon:Taxon ;
          rdfs:label "${name}" ;
          rdfs:subClassOf ?tax option(transitive, t_direction 1, t_min 0, t_step("step_no") as ?level) .
       ?tax rdfs:label ?name .
       ?tax taxon:rank/rdfs:label ?rank .
+      ?tax ncbio:countRefSeqGenome ?count .
       OPTIONAL {
         ?tax taxon:genbankCommonName ?common_name .
       }
@@ -69,6 +71,7 @@ function sparqlToRoot(name, callback) {
             'name': [elem.name.value],
             'taxon name': [elem.name.value],
             'taxon rank': [elem.rank.value],
+            'count': [elem.count.value],
           }
         };
         if (elem.common_name) {
