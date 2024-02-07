@@ -17,7 +17,7 @@
         <script>
          let blitzboard = new Blitzboard(document.getElementById('graph-area'));
          let graph, config;
-         let graphPromise = fetch('js/graph.pg').then(res => {
+         let graphPromise = fetch('js/bee.pg').then(res => {
              return res.text();
          }).then(text => {
              graph = text;
