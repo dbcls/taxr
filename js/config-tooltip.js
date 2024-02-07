@@ -1,6 +1,6 @@
 {
   node: {
-    caption: ['name'],
+    caption: ['name', 'count'],
     defaultIcon: true,
     // title: (n) => blitzboard.createTitle(n) + (n.thumbnail ? `<img width=200 src='${n.thumbnail}'>` : ''),
     title: (n) => {
@@ -83,6 +83,7 @@
             'taxon name': [elem.name.value],
             'taxon rank': [elem.rank.value],
             'tax ID': [elem.url.value],
+            'count': [elem.count.value],
           }
         };
         getThumb(elem.name.value, (result) => {
@@ -169,14 +170,12 @@
         PREFIX taxid: <http://identifiers.org/taxonomy/>
         PREFIX taxon: <http://ddbj.nig.ac.jp/ontologies/taxonomy/>
         PREFIX ncbio: <https://dbcls.github.io/ncbigene-rdf/ontology.ttl#>
-        SELECT ?url ?rank ?name
+        SELECT ?url ?rank ?name ?count
         WHERE {
           ${child} rdfs:subClassOf ${parent} .
           ?url rdfs:label ?name .
           ?url taxon:rank/rdfs:label ?rank .
-          ?refseq_genome a ncbio:RefSeqGenome ;
-              ncbio:taxid ?taxid .
-          ?taxid rdfs:subClassOf* ${child} .
+          ${child} ncbio:countRefSeqGenome ?count .
         }
         `;
       }
