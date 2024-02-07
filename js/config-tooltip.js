@@ -44,7 +44,7 @@
       });
 
       function addParentNode(taxid) {
-        const sparql = sparqlTaxonomyTree(`taxid:${taxid}`, '?url');
+        const sparql = sparqlTaxonomyTreeUp(`taxid:${taxid}`);
         const promise = fetch(`https://spang.dbcls.jp/sparql?query=${encodeURIComponent(sparql)}&format=json`).then(res => {
           return res.json();
         }).then(result => {
@@ -58,7 +58,7 @@
       }
 
       function addChildNode(taxid) {
-        const sparql = sparqlTaxonomyTree('?url', `taxid:${taxid}`);
+        const sparql = sparqlTaxonomyTreeDown(`taxid:${taxid}`);
         const promise = fetch(`https://spang.dbcls.jp/sparql?query=${encodeURIComponent(sparql)}&format=json`).then(res => {
           return res.json();
         }).then(result => {
@@ -164,7 +164,7 @@
         });
       }
 
-      function sparqlTaxonomyTree(child, parent) {
+      function sparqlTaxonomyTreeUp(child) {
         return `
         PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         PREFIX taxid: <http://identifiers.org/taxonomy/>
@@ -172,10 +172,26 @@
         PREFIX ncbio: <https://dbcls.github.io/ncbigene-rdf/ontology.ttl#>
         SELECT ?url ?rank ?name ?count
         WHERE {
-          ${child} rdfs:subClassOf ${parent} .
+          ${child} rdfs:subClassOf ?url .
           ?url rdfs:label ?name .
           ?url taxon:rank/rdfs:label ?rank .
-          ${child} ncbio:countRefSeqGenome ?count .
+          ?url ncbio:countRefSeqGenome ?count .
+        }
+        `;
+      }
+
+      function sparqlTaxonomyTreeDown(parent) {
+        return `
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX taxid: <http://identifiers.org/taxonomy/>
+        PREFIX taxon: <http://ddbj.nig.ac.jp/ontologies/taxonomy/>
+        PREFIX ncbio: <https://dbcls.github.io/ncbigene-rdf/ontology.ttl#>
+        SELECT ?url ?rank ?name ?count
+        WHERE {
+          ?url rdfs:subClassOf ${parent} .
+          ?url rdfs:label ?name .
+          ?url taxon:rank/rdfs:label ?rank .
+          ?url ncbio:countRefSeqGenome ?count .
         }
         `;
       }
