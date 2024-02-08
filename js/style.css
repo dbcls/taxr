@@ -1,7 +1,7 @@
 /* 全体的なスタイル設定 */
 body {
     font-family: Arial, sans-serif; /* サンセリフフォント */
-    font-size: 14px; /* 小さい文字サイズ */
+    font-size: 12px; /* 小さい文字サイズ */
     color: #333;    /* 暗めの文字色 */
 }
 
