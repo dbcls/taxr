@@ -8,14 +8,19 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+        <link rel="stylesheet" href="js/style.css">
         <script src="js/path.js"></script>
     </head>
     <body onload=init()>
         <label id="input_label" for="tags">Search: </label><input id="tags" size="40">
         <br><br>
-        <div id='graph-area' style="width: 98%; height: 90%; border: solid 1px silver; background: radial-gradient(white, silver);"></div>
+        <div id='graph-area' style="width: 98%; height: 800px; border: solid 1px silver; background: radial-gradient(white, silver);">
+            <div id='child-area' style='width: 98%; height: 800px;'></div>
+        </div>
+        <table border="1" id="resultsTable">
+        </table>
         <script>
-         let blitzboard = new Blitzboard(document.getElementById('graph-area'));
+         let blitzboard = new Blitzboard(document.getElementById('child-area'));
          let graph, config;
          let graphPromise = fetch('js/bee.pg').then(res => {
              return res.text();
