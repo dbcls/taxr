@@ -222,7 +222,25 @@
         
         const thead = document.createElement('thead');
         const headerRow = document.createElement('tr');
-        data.head.vars.forEach(variable => {
+        [
+          'TaxID',
+          'Organism Name',
+          'Common Name',
+          'RefSeq category',
+          'Assembly level',
+          'Assembly method',
+          'Genome coverage',
+          'Contig N50',
+          'BUSCO lineage',
+          'BUSCO complete',
+          'genes',
+          'Sequence length',
+          '#chr',
+          'Sequencing technology',
+          'Release date',
+          'Submitter',
+          'Accession',
+        ].forEach(variable => {
           const th = document.createElement('th');
           th.textContent = variable;
           headerRow.appendChild(th);
@@ -233,9 +251,11 @@
         const tbody = document.createElement('tbody');
         data.results.bindings.forEach(binding => {
           const tr = document.createElement('tr');
-          data.head.vars.forEach(variable => {
+          let arr = binding.metadata.value.split('\t');
+          arr.shift();
+          arr.push(binding.accession.value);
+          arr.forEach(value => {
             const td = document.createElement('td');
-            const value = binding[variable].value;
             if (value.match(/^http/)) {
               let link = document.createElement('a');
               link.href = value;
