@@ -254,18 +254,21 @@
           let arr = binding.metadata.value.split('\t');
           arr.shift();
           arr.push(binding.accession.value);
-          arr.forEach(value => {
+          for (let i = 0; i < arr.length; i++) {
             const td = document.createElement('td');
-            if (value.match(/^http/)) {
+            if (arr[i].match(/^http/)) {
               let link = document.createElement('a');
-              link.href = value;
-              link.textContent = value.replace(/.*\//, '');
+              link.href = arr[i];
+              link.textContent = arr[i].replace(/.*\//, '');
               td.appendChild(link);
+            } else if (i > 0 && arr[i].match(/^[0-9]+$/)) {
+              td.textContent = Number(arr[i]).toLocaleString();
+              td.style.textAlign = 'right';
             } else {
-              td.textContent = value;
+              td.textContent = arr[i];
             }
             tr.appendChild(td);
-          });
+          }
           tbody.appendChild(tr);
         });
         table.appendChild(tbody);
