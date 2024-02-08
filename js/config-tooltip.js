@@ -42,6 +42,12 @@
         blitzboard.update();
         blitzboard.hideLoader();
       });
+      const sparql = sparqlGenomeMetadata(`taxid:${n.id}`);
+      fetch(`https://spang.dbcls.jp/sparql?query=${encodeURIComponent(sparql)}&format=json`).then(res => {
+        return res.json();
+      }).then(result => {
+        renderTable(result);
+      });
 
       function addParentNode(taxid) {
         const sparql = sparqlTaxonomyTreeUp(`taxid:${taxid}`);
@@ -194,6 +200,55 @@
           ?url ncbio:countRefSeqGenome ?count .
         }
         `;
+      }
+
+      function sparqlGenomeMetadata(taxon) {
+        return `
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        PREFIX taxid: <http://identifiers.org/taxonomy/>
+        PREFIX ncbio: <https://dbcls.github.io/ncbigene-rdf/ontology.ttl#>
+        SELECT ?accession ?metadata
+        WHERE {
+          ?taxid rdfs:subClassOf* ${taxon} .
+          ?accession ncbio:taxid ?taxid .
+          ?accession ncbio:metadata ?metadata .
+        }
+        `;
+      }
+
+      function renderTable(data) {
+        const table = document.getElementById('resultsTable');
+        table.innerHTML = '';
+        
+        const thead = document.createElement('thead');
+        const headerRow = document.createElement('tr');
+        data.head.vars.forEach(variable => {
+          const th = document.createElement('th');
+          th.textContent = variable;
+          headerRow.appendChild(th);
+        });
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+        
+        const tbody = document.createElement('tbody');
+        data.results.bindings.forEach(binding => {
+          const tr = document.createElement('tr');
+          data.head.vars.forEach(variable => {
+            const td = document.createElement('td');
+            const value = binding[variable].value;
+            if (value.match(/^http/)) {
+              let link = document.createElement('a');
+              link.href = value;
+              link.textContent = value.replace(/.*\//, '');
+              td.appendChild(link);
+            } else {
+              td.textContent = value;
+            }
+            tr.appendChild(td);
+          });
+          tbody.appendChild(tr);
+        });
+        table.appendChild(tbody);
       }
     }
   },
