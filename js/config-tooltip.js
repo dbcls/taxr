@@ -227,15 +227,15 @@
           'Organism Name',
           'Common Name',
           'RefSeq category',
-          'Assembly level',
-          'Genome coverage',
           'Contig N50',
           'BUSCO lineage',
           'BUSCO complete',
           'genes',
           'Sequence length',
+          'Assembly level',
           '#chr',
           'Sequencing technology',
+          'Genome coverage',
           'Assembly method',
           'Release date',
           'Submitter',
@@ -264,6 +264,8 @@
             } else if (i > 0 && arr[i].match(/^[0-9]+$/)) {
               td.textContent = Number(arr[i]).toLocaleString();
               td.style.textAlign = 'right';
+            } else if (arr[i] === 'representative genome') {
+              td.textContent = 'representative';
             } else {
               td.textContent = arr[i];
             }
