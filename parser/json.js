@@ -5,6 +5,7 @@ const readline = require('readline');
 
 program
   .arguments('<jsonl_file>')
+  .option('--n50', 'N50 >= 1M')
   .parse(process.argv);
 
 if (program.args.length === 0) {
@@ -38,5 +39,8 @@ rl.on('line', (line) => {
     obj.assembly_info.submitter,
   ];
 
+  if (opts.n50 && obj.assembly_stats.contig_n50 < 1000000) {
+    return;
+  }
   console.log(arr.join('\t'));
 });
