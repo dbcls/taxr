@@ -267,6 +267,9 @@
             } else {
               td.textContent = arr[i];
             }
+            if (arr[i].match(/^\d\d\d\d-\d\d\-\d\d$/)) {
+              td.style.whiteSpace = 'nowrap';
+            }
             tr.appendChild(td);
           }
           tbody.appendChild(tr);
