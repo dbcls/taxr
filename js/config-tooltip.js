@@ -234,9 +234,9 @@
           'Sequence length',
           'Assembly level',
           '#chr',
-          'Sequencing technology',
-          'Genome coverage',
           'Assembly method',
+          'Genome coverage',
+          'Sequencing technology',
           'Release date',
           'Submitter',
           'Accession',
@@ -261,13 +261,16 @@
               link.href = arr[i];
               link.textContent = arr[i].replace(/.*\//, '');
               td.appendChild(link);
-            } else if (i > 0 && arr[i].match(/^[0-9]+$/)) {
+            } else if (i === 4 || i === 7 || i === 8) {
               td.textContent = Number(arr[i]).toLocaleString();
               td.style.textAlign = 'right';
             } else if (arr[i] === 'representative genome') {
               td.textContent = 'representative';
             } else {
               td.textContent = arr[i];
+            }
+            if (i === 12) {
+              td.style.textAlign = 'right';
             }
             if (arr[i].match(/^\d\d\d\d-\d\d\-\d\d$/)) {
               td.style.whiteSpace = 'nowrap';
