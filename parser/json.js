@@ -19,6 +19,34 @@ const rl = readline.createInterface({ input: rs });
 rl.on('line', (line) => {
   const obj = JSON.parse(line);
 
+  let sex = '';
+  let breed = '';
+  let tissue = '';
+  obj.assembly_info.biosample?.attributes?.forEach((elem) => {
+    if (elem.value === 'missing' || elem.value === 'NOT COLLECTED') {
+      return;
+    }
+    if (elem.name === 'sex') {
+      sex = elem.value;
+    }
+    if (elem.name === 'breed') {
+      breed = elem.value;
+    }
+    if (elem.name === 'tissue') {
+      tissue = elem.value;
+    }
+  });
+  const sample = [];
+  if (sex) {
+    sample.push(sex);
+  }
+  if (breed) {
+    sample.push(breed);
+  }
+  if (tissue) {
+    sample.push(tissue);
+  }
+
   const arr = [
     obj.accession,
     obj.organism.tax_id,
@@ -37,6 +65,7 @@ rl.on('line', (line) => {
     obj.assembly_info.sequencing_tech,
     obj.assembly_info.release_date,
     obj.assembly_info.submitter,
+    sample.join(', '),
   ];
 
   if (opts.n50 && obj.assembly_stats.contig_n50 < 1000000) {

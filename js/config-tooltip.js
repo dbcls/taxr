@@ -239,6 +239,7 @@
           'Sequencing technology',
           'Release date',
           'Submitter',
+          'Sample details',
           'Accession',
         ].forEach(variable => {
           const th = document.createElement('th');
