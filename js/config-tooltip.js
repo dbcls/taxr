@@ -234,8 +234,6 @@
           'Genome size',
           'Assembly level',
           '# of chr',
-          'Assembly method',
-          'Genome coverage',
           'Sequencing technology',
           'Release date',
           'Submitter',
@@ -269,9 +267,6 @@
               td.textContent = 'representative';
             } else {
               td.textContent = arr[i];
-            }
-            if (i === 12) {
-              td.style.textAlign = 'right';
             }
             if (arr[i].match(/^\d\d\d\d-\d\d\-\d\d$/)) {
               td.style.whiteSpace = 'nowrap';
