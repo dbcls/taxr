@@ -42,12 +42,7 @@
         blitzboard.update();
         blitzboard.hideLoader();
       });
-      const sparql = sparqlGenomeMetadata(`taxid:${n.id}`);
-      fetch(`https://spang.dbcls.jp/sparql?query=${encodeURIComponent(sparql)}&format=json`).then(res => {
-        return res.json();
-      }).then(result => {
-        renderTable(result);
-      });
+      updateTable(n.id);
     }
   },
   edge: {

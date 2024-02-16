@@ -30,12 +30,7 @@ $(function () {
         name = name.replace(/ \(.+\)$/, '');
         sparqlToRoot(name, (path) => {
           const taxid = path[path.length - 1].id;
-          const sparql = sparqlGenomeMetadata(`taxid:${taxid}`);
-          fetch(`https://spang.dbcls.jp/sparql?query=${encodeURIComponent(sparql)}&format=json`).then(res => {
-            return res.json();
-          }).then(result => {
-            renderTable(result);
-          });
+          updateTable(taxid);
           addPath(path);
         });
       }
@@ -45,6 +40,15 @@ $(function () {
     blitzboard.setGraph('', true);
   });
 });
+
+function updateTable(taxid) {
+  const sparql = sparqlGenomeMetadata(`taxid:${taxid}`);
+  fetch(`https://spang.dbcls.jp/sparql?query=${encodeURIComponent(sparql)}&format=json`).then(res => {
+    return res.json();
+  }).then(result => {
+    renderTable(result);
+  });
+}
 
 function sparqlToRoot(name, callback) {
   const sparql = `
