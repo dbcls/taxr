@@ -29,6 +29,13 @@ $(function () {
         let name = ui.item.label;
         name = name.replace(/ \(.+\)$/, '');
         sparqlToRoot(name, (path) => {
+          const taxid = path[path.length - 1].id;
+          const sparql = sparqlGenomeMetadata(`taxid:${taxid}`);
+          fetch(`https://spang.dbcls.jp/sparql?query=${encodeURIComponent(sparql)}&format=json`).then(res => {
+            return res.json();
+          }).then(result => {
+            renderTable(result);
+          });
           addPath(path);
         });
       }
@@ -144,4 +151,84 @@ function addPath(path) {
       blitzboard.addEdge({ from: path[i].id, to: path[i+1].id, labels: ['child taxon'] });
     }
   }
+}
+
+function sparqlGenomeMetadata(taxon) {
+  return `
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX taxid: <http://identifiers.org/taxonomy/>
+    PREFIX ncbio: <https://dbcls.github.io/ncbigene-rdf/ontology.ttl#>
+    SELECT DISTINCT ?accession ?metadata
+    WHERE {
+      ?taxid rdfs:subClassOf* ${taxon} .
+      ?accession ncbio:taxid ?taxid ;
+                 ncbio:metadata ?metadata .
+    }
+    `;
+}
+
+function renderTable(data) {
+  const table = document.getElementById('resultsTable');
+  table.innerHTML = '';
+
+  const thead = document.createElement('thead');
+  const headerRow = document.createElement('tr');
+  [
+    'TaxID',
+    'Organism Name',
+    'Common Name',
+    'RefSeq category',
+    'Contig N50',
+    'BUSCO lineage',
+    'BUSCO complete',
+    '# of genes',
+    'Genome size',
+    'Assembly level',
+    '# of chr',
+    'Sequencing technology',
+    'Release date',
+    'Submitter',
+    'Sample details',
+    'Accession',
+  ].forEach(variable => {
+    const th = document.createElement('th');
+    th.textContent = variable;
+    headerRow.appendChild(th);
+  });
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  const tbody = document.createElement('tbody');
+  data.results.bindings.forEach(binding => {
+    const tr = document.createElement('tr');
+    let arr = binding.metadata.value.split('\t');
+    arr.shift();
+    arr.push(binding.accession.value);
+    for (let i = 0; i < arr.length; i++) {
+      const td = document.createElement('td');
+      if (arr[i].match(/^http/)) {
+        let link = document.createElement('a');
+        link.href = arr[i];
+        link.textContent = arr[i].replace(/.*\//, '');
+        td.appendChild(link);
+      } else if (i === 4 || i === 7 || i === 8) {
+        td.textContent = Number(arr[i]).toLocaleString();
+        td.style.textAlign = 'right';
+      } else if (i === 5) {
+        td.textContent = arr[i].replace(/_/g, ' ');
+      } else if (i === 6) {
+        td.textContent = Math.round(Number(arr[i])*10000)/100;
+      } else if (arr[i] === 'representative genome') {
+        td.textContent = 'representative';
+      } else {
+        td.textContent = arr[i];
+      }
+      if (arr[i].match(/^\d\d\d\d-\d\d\-\d\d$/)) {
+        td.style.whiteSpace = 'nowrap';
+      }
+      tr.appendChild(td);
+    }
+    tbody.appendChild(tr);
+  });
+  table.appendChild(tbody);
 }
