@@ -114,7 +114,6 @@ function addPath(path) {
     blitzboard.addNode(path[0], true);
   }
   for (let i=0; i<path.length-1; i++) {
-    console.log(i);
     if (!blitzboard.hasNode(path[i+1].id)) {
       const node = path[i+1];
       getThumb(node.properties['name'], (results) => {
