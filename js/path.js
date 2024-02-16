@@ -232,3 +232,131 @@ function renderTable(data) {
   });
   table.appendChild(tbody);
 }
+
+function addNode (elem, callback) {
+  let id = elem.url.value.replace(/.*\//g, '');
+  if (blitzboard.hasNode(id)) {
+    return;
+  }
+  let node = {
+    id: id,
+    labels: ['Taxon'],
+    properties: {
+      'taxon name': [elem.name.value],
+      'taxon rank': [elem.rank.value],
+      'tax ID': [elem.url.value],
+      'count': [elem.count.value],
+    }
+  };
+  getThumb(elem.name.value, (result) => {
+    for (let elem of result) {
+      if (elem.thumb?.value) {
+        node.properties.thumbnail = [elem.thumb.value];
+      }
+      if (elem.url?.value) {
+        node.properties.Wikidata = [elem.url.value];
+      }
+      if (elem.descr_ja?.value) {
+        node.properties.description = [elem.descr_ja.value];
+      }
+      if (elem.rank_ja?.value) {
+        node.properties.rank_ja = [elem.rank_ja.value];
+      }
+      if (elem.name_ja?.value) {
+        node.properties.name = [elem.name_ja.value];
+      }
+    }
+    if (!node.properties.name) {
+      node.properties.name = [elem.name.value];
+    }
+    blitzboard.addNode(node, false);
+    callback(id);
+  });
+}
+
+function addEdge (child, parent) {
+  if (child && parent && !blitzboard.hasEdge(child, parent)) {
+    blitzboard.addEdge({
+      from: parent,
+      to: child,
+      labels: ['child taxon'],
+    });
+  }
+}
+
+function addParentNode(taxid) {
+  const sparql = sparqlTaxonomyTreeUp(`taxid:${taxid}`);
+  const promise = fetch(`https://spang.dbcls.jp/sparql?query=${encodeURIComponent(sparql)}&format=json`).then(res => {
+    return res.json();
+  }).then(result => {
+    for (let elem of result.results.bindings) {
+      addNode(elem, (id) => {
+        addEdge(taxid, id);
+      });
+    }
+  });
+  return promise;
+}
+
+function addChildNode(taxid) {
+  const sparql = sparqlTaxonomyTreeDown(`taxid:${taxid}`);
+  const promise = fetch(`https://spang.dbcls.jp/sparql?query=${encodeURIComponent(sparql)}&format=json`).then(res => {
+    return res.json();
+  }).then(result => {
+    for (let elem of result.results.bindings) {
+      addNode(elem, (id) => {
+        addEdge(id, taxid);
+      });
+    }
+  });
+  return promise;
+}
+
+function getComment(name, callback) {
+  name = name.replace(/ /g, '_');
+  const sparql = `
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX dbpedia: <http://dbpedia.org/resource/>
+    SELECT ?comment
+    WHERE {
+      dbpedia:${name} rdfs:comment ?comment .
+      FILTER (lang(?comment) = "ja")
+    }`;
+  fetch(`https://dbpedia.org/sparql?query=${encodeURIComponent(sparql)}&format=json`).then(res => {
+    return res.json();
+  }).then(result => {
+    callback(result);
+  });
+}
+
+function sparqlTaxonomyTreeUp(child) {
+  return `
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX taxid: <http://identifiers.org/taxonomy/>
+    PREFIX taxon: <http://ddbj.nig.ac.jp/ontologies/taxonomy/>
+    PREFIX ncbio: <https://dbcls.github.io/ncbigene-rdf/ontology.ttl#>
+    SELECT ?url ?rank ?name ?count
+    WHERE {
+      ${child} rdfs:subClassOf ?url .
+      ?url rdfs:label ?name .
+      ?url taxon:rank/rdfs:label ?rank .
+      ?url ncbio:countRefSeqGenome ?count .
+    }
+    `;
+}
+
+function sparqlTaxonomyTreeDown(parent) {
+  return `
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX taxid: <http://identifiers.org/taxonomy/>
+    PREFIX taxon: <http://ddbj.nig.ac.jp/ontologies/taxonomy/>
+    PREFIX ncbio: <https://dbcls.github.io/ncbigene-rdf/ontology.ttl#>
+    SELECT ?url ?rank ?name ?count
+    WHERE {
+      ?url rdfs:subClassOf ${parent} .
+      ?url rdfs:label ?name .
+      ?url taxon:rank/rdfs:label ?rank .
+      ?url ncbio:countRefSeqGenome ?count .
+    }
+    `;
+}
