@@ -12,8 +12,15 @@
         <script src="js/path.js"></script>
     </head>
     <body onload=init()>
-        <label id="input_label" for="tags">Search: </label><input id="tags" size="40">
-        <br><br>
+        <div class="container" style="width: 92%">
+            <div class="select-container">
+                <label id="input_label" for="tags">Search: </label><input id="tags" size="40" class="rounded">
+            </div>
+            <div class="button-container">
+                <button id="button-clear" class="text-muted rounded-button">Clear graph</button>
+            </div>
+        </div>
+        <br>
         <div id='graph-area' style="width: 90%; height: 600px; border: solid 1px silver; background: radial-gradient(white, silver);">
             <div id='child-area' style='width: 90%; height: 600px;'></div>
         </div>

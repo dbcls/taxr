@@ -29,11 +29,13 @@ $(function () {
         let name = ui.item.label;
         name = name.replace(/ \(.+\)$/, '');
         sparqlToRoot(name, (path) => {
-          // blitzboard.setGraph('', true);
           addPath(path);
         });
       }
     }
+  });
+  document.getElementById('button-clear').addEventListener('click', function() {
+    blitzboard.setGraph('', true);
   });
 });
 
