@@ -263,6 +263,10 @@
             } else if (i === 4 || i === 7 || i === 8) {
               td.textContent = Number(arr[i]).toLocaleString();
               td.style.textAlign = 'right';
+            } else if (i === 5) {
+              td.textContent = arr[i].replace(/_/g, ' ');
+            } else if (i === 6) {
+              td.textContent = Math.round(Number(arr[i])*10000)/100;
             } else if (arr[i] === 'representative genome') {
               td.textContent = 'representative';
             } else {
