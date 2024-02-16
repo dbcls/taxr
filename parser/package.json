@@ -1,9 +1,0 @@
-{
-  "name": "parser",
-  "version": "0.0.1",
-  "author": "Hirokazu Chiba",
-  "license": "MIT",
-  "dependencies": {
-    "commander": "^11.1.0"
-  }
-}
