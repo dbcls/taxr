@@ -179,6 +179,7 @@ function renderTable(data) {
   const thead = document.createElement('thead');
   const headerRow = document.createElement('tr');
   [
+    '',
     'TaxID',
     'Organism Name',
     'Common Name',
@@ -209,6 +210,9 @@ function renderTable(data) {
     let arr = binding.metadata.value.split('\t');
     arr.shift();
     arr.push(binding.accession.value);
+    const td = document.createElement('td');
+    td.style.textAlign = 'right';
+    tr.appendChild(td);
     for (let i = 0; i < arr.length; i++) {
       const td = document.createElement('td');
       if (arr[i].match(/^http/)) {
@@ -236,7 +240,13 @@ function renderTable(data) {
     tbody.appendChild(tr);
   });
   table.appendChild(tbody);
-  $('#resultsTable').tablesorter();
+  $('#resultsTable').tablesorter(
+    {
+      headers: {
+        0: { sorter: false },
+      }
+    }
+  );
 }
 
 function addNode (elem, callback) {
