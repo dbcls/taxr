@@ -42,6 +42,7 @@ $(function () {
 });
 
 function updateTable(taxid) {
+  document.getElementById('resultsTable').innerHTML = 'Searching ...';
   const sparql = sparqlGenomeMetadata(`taxid:${taxid}`);
   fetch(`https://spang.dbcls.jp/sparql?query=${encodeURIComponent(sparql)}&format=json`).then(res => {
     return res.json();
