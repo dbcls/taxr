@@ -235,6 +235,7 @@ function renderTable(data) {
     tbody.appendChild(tr);
   });
   table.appendChild(tbody);
+  $('#resultsTable').tablesorter();
 }
 
 function addNode (elem, callback) {
